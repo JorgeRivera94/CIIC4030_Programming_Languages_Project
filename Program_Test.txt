@@ -1,0 +1,13 @@
+// Use this code to test the scanner
+
+func List[n] :=
+    let func Helper[a] :=
+                if a > n | a = n
+                    then nil
+                    else CONS[a, Helper[a+1]]
+                end
+        end
+    in
+        Helper[0]
+    end
+end
