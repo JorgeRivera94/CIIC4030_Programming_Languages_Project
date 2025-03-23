@@ -1,13 +1,25 @@
 // Use this code to test the scanner
 
-func List[n] :=
-    let func Helper[a] :=
-                if a > n | a = n
-                    then nil
-                    else CONS[a, Helper[a+1]]
-                end
-        end
+//func List[n] :=
+//    let func Helper[a] :=
+//                if a > n | a = n
+//                    then nil
+//                    else CONS[a, Helper[a+1]]
+//                end
+//        end
+//    in
+//        Helper[0]
+//    end
+//end
+
+//exec List[5]
+
+func SomeFunction[n] :=
+    let
+        val r := 15 end
     in
-        Helper[0]
+        n*r
     end
 end
+
+exec SomeFunction[3]
