@@ -285,6 +285,69 @@ precedence = (
 )
 # END PARSING DEFINITION
 
+# INTERPRETER DEFINITION
+# Working on the same file to then separate them
+
+# Recursively evaluate the AST
+def evaluate(node, env):
+    if not node:
+        return None
+    
+    # Get the type of the current node (dictionary)
+    node_type = node.get("type")
+
+    # Primitive types
+    if node_type == "stm_value":
+        return node["value"]
+    
+    # Variable
+    elif node_type == "stm_id":
+        var_name = node["id"]
+        if var_name in env:
+            fact = env[var_name]
+
+            # If it is a variable definition
+            if fact["type"] == "val":
+                return evaluate(fact["stm"], env)
+            return fact
+        else:
+            raise NameError("f:Undefined variable: {var_name}")
+    
+    # Operations
+    elif node_type == "stm_op":
+        op = node["op"]
+
+        # Unary minus
+        if op == "uminus":
+            value = evaluate(node["value"], env)
+            # Type checking
+            if not isinstance(value, (int, float)):
+                raise TypeError(f"Unary minus requires a number of integer or float type. Type is: {type(value).__name__}")
+            
+            return -1 * value
+        
+        # Binary operations
+        left_val = evaluate(node["value1"], env)
+        right_val = evaluate(node["value2"], env)
+
+
+def interpreter(ast):
+    # if null imput
+    if not ast:
+        return None
+
+    # Definitions
+    env = {}
+    if "facts" in ast:
+        for name, fact in ast["facts"].items():
+            env[name] = fact
+
+    # Execute the ast
+    if "stm" in ast:
+        return evaluate(ast["stm"], env)
+    
+    return None # TODO VOID FOR NOW
+# END INTERPRETER DEFINITION
 
 # CALL PARSING 
 
