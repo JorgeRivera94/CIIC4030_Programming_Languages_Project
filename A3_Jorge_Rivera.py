@@ -304,7 +304,7 @@ def main():
     
     # Printing AST
     print("\nAbstract Syntax Tree:\n")
-    print(json.dumps(ast, indent=2))
+    print(json.dumps(ast, indent=4))
 
     print("\nFinalizing Parsing")
 

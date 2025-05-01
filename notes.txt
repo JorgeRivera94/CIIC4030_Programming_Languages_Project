@@ -1,0 +1,3 @@
+* Must create a file report.pdf that describes the implementation and testing.
+    It must include screenshots of the testing results.
+* Must develop testing cases.
