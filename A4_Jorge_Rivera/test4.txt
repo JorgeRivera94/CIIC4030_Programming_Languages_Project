@@ -1,0 +1,13 @@
+// Testing recursive function
+
+func Factorial[n] :=
+    if n = 0 then
+        1
+    else
+        n * Factorial[n - 1]
+    end
+end
+
+exec Factorial[5]
+
+// Expected: 120

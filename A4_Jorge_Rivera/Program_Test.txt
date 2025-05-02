@@ -9,3 +9,5 @@ func SomeFunction[n] :=
 end
 
 exec SomeFunction[3]
+
+// Expected: 45

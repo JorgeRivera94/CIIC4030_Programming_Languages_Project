@@ -1,0 +1,9 @@
+// Goofy dot operator
+
+func MakeDecimal[whole, fractional] :=
+    whole . fractional
+end
+
+exec MakeDecimal[3, 14]
+
+// Expected: 3.14

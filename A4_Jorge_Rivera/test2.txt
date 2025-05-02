@@ -1,0 +1,20 @@
+// Scope test with nested let expressions
+
+val x := 10 end
+
+func ScopeTest[y] :=
+    let
+        val x := 20 end
+        val z := 5 end
+    in
+        let
+            val x := 30 end
+        in
+            x + y + z
+        end
+    end
+end
+
+exec ScopeTest[x]
+
+// Expected: 45

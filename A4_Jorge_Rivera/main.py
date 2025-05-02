@@ -25,7 +25,8 @@ def main():
         
         # Printing AST
         print("\nAbstract Syntax Tree:\n")
-        print(json.dumps(ast, indent=4))
+        print(json.dumps(ast, indent=4)) 
+        # In testing screenshots, removed indent argument for formatting the images
 
         # Interpreter
         try:

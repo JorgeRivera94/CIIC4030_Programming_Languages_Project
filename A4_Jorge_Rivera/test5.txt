@@ -1,0 +1,9 @@
+// String concatenation
+
+func CombineStrings[a, b] :=
+    a . b
+end
+
+exec CombineStrings["Hello", "World"]
+
+// Expected: HelloWorld

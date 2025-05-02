@@ -1,0 +1,9 @@
+// Raise type error
+
+func BadFunction[n] :=
+    n + "string"
+end
+
+exec BadFunction[10]
+
+// Expected: TypeError

@@ -1,0 +1,10 @@
+// Arithmetic operations and function calls
+
+func Add[a, b] := a + b end
+func Subtract[a, b] := a - b end
+func Multiply[a, b] := a * b end
+func Divide[a, b] := a / b end
+
+exec Add[Multiply[5, 4], Divide[10, 2]]
+
+// Expected: 25
