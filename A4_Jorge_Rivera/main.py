@@ -11,9 +11,6 @@ def main():
     lexer = get_lexer()
     parser = get_parser()
 
-    
-    # textFile = open('Program_Test.txt', 'r')
-    # data = textFile.read()
     try:
         # Read the file
         file_path = "Program_Test.txt"
@@ -37,7 +34,7 @@ def main():
         
         except Exception as e:
             print(f"\nExecution error: {type(e).__name__}: {str(e)}")
-            
+
     except FileNotFoundError:
         print(f"File '{file_path}' not found.")
     except Exception as e:
