@@ -66,12 +66,12 @@ def evaluate(node, env):
             return left_val / right_val
         
         elif op == ".":
-            val = str(left_val) + "." + str(right_val)
             # If they are integers, make a decimal
             if isinstance(left_val, int) and isinstance(right_val, int):
+                val = str(left_val) + "." + str(right_val)
                 return float(val)
             # If not, concatenate strings
-            return val
+            return str(left_val) + str(right_val)
         
         # Comparisons operations
         elif op == "<":
@@ -111,7 +111,7 @@ def evaluate(node, env):
         
         func_def = env[func_name]
         if func_def["type"] != "func":
-            raise TypeError(f"{func_name} is not a function, it is of type: {func_def["type"]}.")
+            raise TypeError(f"{func_name} is not a function, it is of type: {func_def['type']}.")
         
         # Argument values
         arg_values = [evaluate(arg, env) for arg in node["args"]]
